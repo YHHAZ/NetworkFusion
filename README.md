@@ -1,7 +1,7 @@
 # Detection algorithm for pigmented skin disease based on classifier-level and feature-level fusion
 
 Official implementation of the paper : Detection algorithm for pigmented skin disease based on classifier-level and feature-level fusion
-
+https://www.frontiersin.org/articles/10.3389/fpubh.2022.1034772/full
 ## Noting
 
 - Code will be released in the future.

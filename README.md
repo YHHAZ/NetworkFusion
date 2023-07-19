@@ -1,58 +1,26 @@
 # Detection algorithm for pigmented skin disease based on classifier-level and feature-level fusion
 
-Official implementation of the paper : Detection algorithm for pigmented skin disease based on classifier-level and feature-level fusion
-https://www.frontiersin.org/articles/10.3389/fpubh.2022.1034772/full
-## Noting
+This repository is the official implementation source code for the paper [Detection algorithm for pigmented skin disease based on classifier-level and feature-level fusion](https://www.frontiersin.org/articles/10.3389/fpubh.2023.1229178/full).
 
-- Code will be released in the future.
-- The category names in the data set were mislabeled in the paper published online due to an author's negligence.
+## Noting Erratum
 
+Due to an oversight by the authors, the category names in the dataset were incorrectly labeled in the published paper. An erratum has now been published to correct this. The specific errors are shown in the table below:
 
-| Original index      | Correct index |
-| ----------- | ----------- |
-| nv      | akiec       |
-| mel   | bcc        |
-| bkl   | bkl        |
-| bcc   | df        |
-| akiec   | nv        |
-| vasc   | mel        |
-| df   | vasc        |
+| Original index | Correct index |
+| -------------- | ------------- |
+| nv             | akiec         |
+| mel            | bcc           |
+| bkl            | bkl           |
+| bcc            | df            |
+| akiec          | nv            |
+| vasc           | mel           |
+| df             | vasc          |
 
+The erratum article is [Corrigendum: Detection algorithm for pigmented skin disease based on classifier-level and feature-level fusion](https://www.frontiersin.org/articles/10.3389/fpubh.2023.1229178/full).
 
-Figure 2,Table 1,Table 3,Table 4,Table 5,Table 6，Table 7
+## Usage
 
-The category index of each row of these tables and images is misaligned and needs to be corrected as above.
+To use this repository, follow these steps:
 
-
-And the following text needs to replace akiec with nv
-
-3.1. System architecture
-
-As seen from Figure 1, the proportions of the different categories after image pretreatment are seriously unbalanced; among them, the <font color="red">“nv”</font> category occupies 66.95% of the dataset. If no processing is performed, the neural network will seriously prefer this category in model training.
-
-Image augmentation: As the nv category accounts for 66.95% of the dataset, if dataset balance needs to be achieved, other categories need to be upsampled. First, skin images (except those in the <font color="red">nv</font> category) are preprocessed by turning them left and right, reversing up and down, symmetric rotation (the calculation process is shown in Algorithm 1) and performing image style transfer (the calculation process is shown in Algorithm 2) to achieve a balance between the various categories of images. 
-
-
-3.2.1 Dataset
-
-<font color="red">
-Cases include a representative collection of all import diagnostic categories in the realm of pigmented lesions. The seven types are melanocytic Nevi (nv), Melanoma (mel), Benign Keratosis-like Lesions (solar lentigines/seborrheic keratoses and lichen-planus-like keratoses) (bkl), Basal Cell Carcinoma (bcc), Actinic Keratoses and Intraepithelial Carcinoma/Bowen's disease (akiec), Vascular lesions (angiomas, angiokeratomas, pyogenic granulomas, and hemorrhage) (vasc), and Dermatofibroma (df). The corresponding amounts of image data are 6705, 1113, 1099, 514, 327, 142, and 115, respectively.
-</font>
-
-3.2.2. Image preprocessing and augmentation
-
-First, we carry out the following basic operations on the images (except for those in the <font color="red">nv</font> category): left and right mirror rotation, up and down mirror rotation, symmetric rotation, etc.; these operations can balance the images to a certain extent. 
-
-First, this paper calculates the sample size differences between <font color="red">nv</font> and the other categories in the image dataset according to Equation (2) and then divides each difference by the sample size of the corresponding category to obtain the sample size “n” that needs to be randomly added to the other categories. 
-
-$$
-Add_d = \frac{Num(Class\_nv)-Num(Class\_i)}{Num(Class\_i)}
-$$
-
-it indicates that the data volume of this category is not very different from that of <font color="red">nv</font>. In this paper, the number of data differences is randomly extracted for image style transfer.
-
-4.3.1. Test results of a single classifier
-
-Where n_classes represents the number of categories, and differences represents the difference between this category and the category <font color="red">nv</font>.
-
-However, it can be seen from the Acc and F1 values in the table that the detection rate of the <font color="red">“nv”</font> category is much higher than that of the other categories, indicating that a single model has certain anti-interference ability limitations with respect to the images generated by the algorithm.
+1. Prepare data.
+2. Run code.
